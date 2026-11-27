@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="color-scheme" content="light">
+<title>From time evolution to the Heisenberg equation</title>
+<style>
+:root{color-scheme:light;--bg:#f6f7f9;--paper:#fff;--ink:#202b38;--muted:#596979;--line:#dfe5eb;--accent:#2859a5;--state:#2865c6;--op:#087d6b;--soft:#edf3fb;--green-soft:#e8f6f2;--shadow:0 3px 16px #172f5010}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:1000px;margin:auto;padding:48px 24px 72px}header{padding:12px 0 30px;border-bottom:1px solid var(--line)}.eyebrow{font-size:.76rem;font-weight:750;text-transform:uppercase;letter-spacing:.14em;color:var(--accent)}h1{font-size:clamp(2rem,4.7vw,3.25rem);letter-spacing:-.045em;line-height:1.12;max-width:850px;margin:12px 0 18px}h2{font-size:clamp(1.35rem,3vw,1.8rem);letter-spacing:-.025em;line-height:1.3;margin:0 0 16px}h3{font-size:1.05rem;margin:0 0 6px;line-height:1.4}p{margin:0 0 15px}header p{font-size:1.12rem;color:var(--muted);max-width:760px;margin-bottom:0}nav{display:flex;gap:8px 20px;flex-wrap:wrap;padding:16px 0 0;font-size:.86rem}nav a{color:var(--accent);text-decoration:none}nav a:hover{text-decoration:underline}section{margin-top:42px;scroll-margin-top:20px}.number{font-size:.86em;font-weight:650;color:var(--accent);margin-right:7px}.equation{padding:16px 12px;text-align:center;overflow-x:auto;margin:14px 0 20px;font-size:1.19rem}.equation math{font-size:1.12em}.equation.key{background:var(--paper);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}math{font-family:"STIX Two Math","Cambria Math",math,serif}math[display="inline"]{font-size:1.06em}.small{font-size:.88rem;color:var(--muted)}.question{font-weight:650;color:var(--accent);margin:24px 0 0}.panel{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow);margin:20px 0}.pictures{display:grid;grid-template-columns:1fr 1fr;gap:14px}.picture{border:1px solid var(--line);border-radius:12px;padding:16px;min-width:0}.picture p{font-size:.9rem;color:var(--muted);margin:6px 0 0}.formula-group{display:flex;justify-content:center;align-items:center;gap:3px;flex-wrap:wrap;padding:18px 0 8px;font-size:1.16rem}.formula-group span{padding:4px 6px;border-radius:5px;white-space:nowrap;font-family:"Cambria Math","STIX Two Math",serif}.group-state{color:var(--state);background:var(--soft);font-weight:600}.group-op{color:var(--op);background:var(--green-soft);font-weight:600}.underlabels{display:flex;justify-content:center;font-size:.83rem;font-weight:600;color:var(--muted);gap:12px;flex-wrap:wrap}.state-text{color:var(--state)}.op-text{color:var(--op)}button{font:inherit;font-size:.9rem;font-weight:650;padding:8px 14px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;cursor:pointer}button:hover{border-color:var(--accent)}button.primary{background:var(--accent);border-color:var(--accent);color:#fff}button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--state);outline-offset:3px}.step{border-left:2px solid var(--line);padding:0 0 2px 17px;margin:22px 0}.step p{margin:0}.step .equation{margin:8px 0}.step-tag{font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--muted);display:block;margin:0 0 6px}.note{border-left:3px solid var(--accent);padding:1px 0 1px 14px;margin:20px 0;color:var(--muted);font-size:.91rem}.note p{margin:0}.compare{width:100%;border-collapse:collapse;table-layout:fixed;margin:20px 0;font-size:.94rem}.compare th,.compare td{padding:13px 12px;text-align:center;border-bottom:1px solid var(--line);vertical-align:middle;overflow-wrap:anywhere}.compare th{background:var(--paper);color:var(--accent)}.compare td math{font-size:1.06em}details{border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:12px 0;background:var(--paper)}summary{cursor:pointer;font-weight:650;color:var(--accent)}details[open] summary{margin-bottom:16px}.quiz-options{display:flex;gap:8px;flex-wrap:wrap}.feedback{margin:10px 0 0;font-size:.92rem;min-height:1.5em}.feedback.correct{color:var(--op)}.feedback.wrong{color:#a43e35}.quiz-options button[aria-pressed=true]{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}footer{border-top:1px solid var(--line);margin-top:42px;padding-top:18px;color:var(--muted);font-size:.86rem}
+@media(max-width:600px){main{padding:25px 15px 40px}section{margin-top:32px}.panel{padding:13px}.pictures{grid-template-columns:1fr}.formula-group{font-size:1.1rem}.equation{font-size:1rem;padding-left:4px;padding-right:4px}.compare th,.compare td{padding:9px 5px;font-size:.85rem}header p{font-size:1rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{body{background:white;color:black}main{max-width:none;padding:0}nav,.quiz-options{display:none}section,.panel,.picture,.panel,.equation.key{box-shadow:none}details:not([open])>*:not(summary){display:block}}
+
+.quiz{padding:17px 20px;box-shadow:none;background:var(--paper)}
+.quiz h3{font-size:1rem;line-height:1.55;margin:0 0 12px;font-weight:600}
+.quiz-options{display:flex;flex-wrap:wrap;gap:8px}
+.quiz-options button{font-size:.9rem;font-weight:550;text-align:left;line-height:1.5;max-width:100%;white-space:normal}
+.quiz-options button.is-correct{color:#096650;background:#e8f6f2;border-color:#087d6b;box-shadow:0 0 0 1px #087d6b}
+.quiz-options button.is-wrong{color:#9b302d;background:#fdf0ef;border-color:#bc5148;box-shadow:0 0 0 1px #bc5148}
+.quiz .feedback{margin-top:10px;font-size:.9rem;color:var(--muted)}
+.quiz .feedback.correct{color:#096650}.quiz .feedback.wrong{color:#9b302d}
+@media(max-width:600px){.quiz{padding:14px}.quiz-options button{width:100%}}
+[hidden]{display:none!important}
+nav a[aria-disabled="true"]{color:var(--muted);opacity:.65;cursor:default;text-decoration:none}
+.lesson-progress{font-size:.86rem;color:var(--muted);margin:12px 0 0}
+.quiz-options button:disabled{cursor:default}
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="eyebrow">Quantum mechanics · Time evolution</div>
+<h1>From time evolution to the Heisenberg equation</h1>
+<p>Why can we let the operator evolve instead of the state? Follow the same physical prediction in two different pictures, and the equation of motion follows naturally.</p>
+<nav aria-label="Sections"><a href="#time">1. Time evolution</a><a href="#pictures" data-nav-unlock="1" aria-disabled="true" tabindex="-1">2. Two pictures</a><a href="#equation" data-nav-unlock="2" aria-disabled="true" tabindex="-1">3. Equation of motion</a><a href="#oscillator" data-nav-unlock="4" aria-disabled="true" tabindex="-1">4. Harmonic oscillator</a></nav>
+<p class="lesson-progress" id="lesson-progress" role="status" aria-live="polite">0 of 5 checks completed. Answer each quiz correctly to reveal the next part.</p>
+</header>
+<section id="time">
+<h2><span class="number">01</span>Start with time evolution</h2>
+<p>In quantum mechanics, the Hamiltonian <math><mi>H</mi></math> governs how the state changes with time. We describe this using the Schrödinger equation:</p>
+<div class="equation"><math display="block"><mrow><mi>i</mi><mi>ℏ</mi><mfrac><mi>d</mi><mrow><mi>d</mi><mi>t</mi></mrow></mfrac><mo>|</mo><mi>ψ</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>⟩</mo><mo>=</mo><mi>H</mi><mo>|</mo><mi>ψ</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>⟩</mo></mrow></math></div>
+<p>For a time-independent Hamiltonian, solving this equation gives</p>
+<div class="equation key"><math display="block"><mtable rowspacing="0.7em"><mtr><mtd><mo>|</mo><mi>ψ</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>⟩</mo><mo>=</mo><mi>U</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>|</mo><mi>ψ</mi><mo>(</mo><mn>0</mn><mo>)</mo><mo>⟩</mo></mtd></mtr><mtr><mtd><mi>U</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>=</mo><msup><mi>e</mi><mrow><mo>−</mo><mi>i</mi><mi>H</mi><mi>t</mi><mo>/</mo><mi>ℏ</mi></mrow></msup></mtd></mtr></mtable></math></div>
+<p>The unitary <math><mrow><mi>U</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>=</mo><msup><mi>e</mi><mrow><mo>−</mo><mi>i</mi><mi>H</mi><mi>t</mi><mo>/</mo><mi>ℏ</mi></mrow></msup></mrow></math> is called the <strong>time evolution operator</strong>. It takes the state at time zero to the state at time <i>t</i>.</p>
+<div class="panel quiz" role="group" aria-labelledby="q1-title"><span class="step-tag">Quick check 1</span><h3 id="q1-title">If |ψ(t)⟩ = U(t)|ψ(0)⟩, what is the corresponding bra?</h3><div class="quiz-options"><button type="button" data-correct="false" data-feedback="Taking the adjoint changes U to U† as well as reversing the order." aria-pressed="false">⟨ψ(0)| U(t)</button><button type="button" data-correct="true" data-feedback="Taking the adjoint reverses the order and changes U to U†." aria-pressed="false">⟨ψ(0)| U†(t)</button><button type="button" data-correct="false" data-feedback="The bra also evolves; it cannot generally remain fixed in the Schrödinger picture." aria-pressed="false">⟨ψ(0)|</button></div><p class="feedback" role="status" aria-live="polite">Choose an answer to unlock the next part.</p></div>
+<div data-unlock="1" hidden>
+<p class="question">But do we really need to put all the time dependence into the state?</p>
+</div>
+</section>
+<section id="pictures" data-unlock="1" hidden>
+<h2><span class="number">02</span>The same physics in two pictures</h2>
+<p>What we can observe experimentally are measurement outcomes and their probabilities. For example, suppose we want the expectation value of an observable <math><mi>A</mi></math> at time <i>t</i>:</p>
+<div class="equation"><math display="block"><mrow><msub><mrow><mo>⟨</mo><mi>A</mi><mo>⟩</mo></mrow><mi>t</mi></msub><mo>=</mo><mo>⟨</mo><mi>ψ</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>|</mo><mi>A</mi><mo>|</mo><mi>ψ</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>⟩</mo></mrow></math></div>
+<p>Substitute the time-evolved ket and its corresponding bra:</p>
+<div class="equation"><math display="block"><mrow><mo>|</mo><mi>ψ</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>⟩</mo><mo>=</mo><mi>U</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>|</mo><mi>ψ</mi><mo>(</mo><mn>0</mn><mo>)</mo><mo>⟩</mo><mspace width="1.2em"/><mo>,</mo><mspace width="1.2em"/><mo>⟨</mo><mi>ψ</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>|</mo><mo>=</mo><mo>⟨</mo><mi>ψ</mi><mo>(</mo><mn>0</mn><mo>)</mo><mo>|</mo><msup><mi>U</mi><mo>†</mo></msup><mo>(</mo><mi>t</mi><mo>)</mo></mrow></math></div>
+<div class="equation key"><math display="block"><mrow><msub><mrow><mo>⟨</mo><mi>A</mi><mo>⟩</mo></mrow><mi>t</mi></msub><mo>=</mo><mo>⟨</mo><mi>ψ</mi><mo>(</mo><mn>0</mn><mo>)</mo><mo>|</mo><msup><mi>U</mi><mo>†</mo></msup><mo>(</mo><mi>t</mi><mo>)</mo><mi>A</mi><mi>U</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>|</mo><mi>ψ</mi><mo>(</mo><mn>0</mn><mo>)</mo><mo>⟩</mo></mrow></math></div>
+<p>Here is the key idea: <strong>we can group exactly the same expression in two different ways.</strong> We can absorb the time evolution into the state, or into the observable.</p>
+<div class="panel quiz" role="group" aria-labelledby="q2-title"><span class="step-tag">Quick check 2</span><h3 id="q2-title">To keep the state fixed at |ψ(0)⟩ without changing the expectation value, which operator should we use?</h3><div class="quiz-options"><button type="button" data-correct="false" data-feedback="The order is reversed. The original expectation value has U† on the left of A and U on the right." aria-pressed="false">U A U†</button><button type="button" data-correct="false" data-feedback="Keeping both the operator and the state fixed would generally remove the physical time dependence." aria-pressed="false">A</button><button type="button" data-correct="true" data-feedback="Exactly: grouping the middle three factors gives the Heisenberg-picture operator." aria-pressed="false">U† A U</button></div><p class="feedback" role="status" aria-live="polite">Choose an answer to unlock the next part.</p></div>
+<div data-unlock="2" hidden>
+<div class="pictures">
+<div class="picture"><h3>Schrödinger picture</h3><p>State evolves; observable stays fixed.</p><div class="formula-group" aria-label="Time evolution grouped into the bra and ket"><span class="group-state">⟨ψ(0)| U†</span><span>A</span><span class="group-state">U |ψ(0)⟩</span></div><div class="underlabels"><span class="state-text">⟨ψ(t)|</span><span>fixed A</span><span class="state-text">|ψ(t)⟩</span></div><div class="equation"><math><mrow><mo>|</mo><mi>ψ</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>⟩</mo><mo>=</mo><mi>U</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>|</mo><mi>ψ</mi><mo>(</mo><mn>0</mn><mo>)</mo><mo>⟩</mo></mrow></math></div></div>
+<div class="picture"><h3>Heisenberg picture</h3><p>Observable evolves; state stays fixed.</p><div class="formula-group" aria-label="Time evolution grouped into the observable"><span>⟨ψ(0)|</span><span class="group-op">U† A U</span><span>|ψ(0)⟩</span></div><div class="underlabels"><span>fixed state</span><span class="op-text">A(t)</span><span>fixed state</span></div><div class="equation"><math><mrow><mi>A</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>=</mo><msup><mi>U</mi><mo>†</mo></msup><mo>(</mo><mi>t</mi><mo>)</mo><mi>A</mi><mi>U</mi><mo>(</mo><mi>t</mi><mo>)</mo></mrow></math></div></div>
+</div>
+<div class="equation key"><math display="block"><mrow><mo>⟨</mo><mi>ψ</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>|</mo><mi>A</mi><mo>|</mo><mi>ψ</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>⟩</mo><mo>=</mo><mo>⟨</mo><mi>ψ</mi><mo>(</mo><mn>0</mn><mo>)</mo><mo>|</mo><mi>A</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>|</mo><mi>ψ</mi><mo>(</mo><mn>0</mn><mo>)</mo><mo>⟩</mo></mrow></math></div>
+<p>Nothing about the physics has changed. We have only changed where we put the time dependence. In fact, the same transformation preserves every measurement probability, not just the expectation value.</p>
+<p class="question">Now that the operator carries the time dependence, what equation describes its motion?</p>
+</div>
+</section>
+<section id="equation" data-unlock="2" hidden>
+<h2><span class="number">03</span>Derive the Heisenberg equation of motion</h2>
+<p>In the Schrödinger picture, the Schrödinger equation describes how the state evolves. We want the corresponding equation for an operator in the Heisenberg picture.</p>
+<div class="step"><span class="step-tag">Step 1 · Write the evolving operator</span><p>Use the definition we just obtained, with <math><mi>A</mi></math> the fixed Schrödinger-picture observable:</p><div class="equation"><math display="block"><mrow><mi>A</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>=</mo><msup><mi>U</mi><mo>†</mo></msup><mo>(</mo><mi>t</mi><mo>)</mo><mi>A</mi><mi>U</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>=</mo><msup><mi>e</mi><mrow><mi>i</mi><mi>H</mi><mi>t</mi><mo>/</mo><mi>ℏ</mi></mrow></msup><mi>A</mi><msup><mi>e</mi><mrow><mo>−</mo><mi>i</mi><mi>H</mi><mi>t</mi><mo>/</mo><mi>ℏ</mi></mrow></msup></mrow></math></div></div>
+<div class="panel quiz" role="group" aria-labelledby="q3-title"><span class="step-tag">Quick check 3</span><h3 id="q3-title">When differentiating A(t) = U†(t) A U(t), with A fixed, which expression follows from the product rule?</h3><div class="quiz-options"><button type="button" data-correct="true" data-feedback="Both U† and U depend on time. Differentiate each in turn, preserving the operator order." aria-pressed="false">(dU†/dt) A U + U† A (dU/dt)</button><button type="button" data-correct="false" data-feedback="Here A is the fixed Schrödinger-picture operator, so its derivative is zero. The time dependence is in the two U factors." aria-pressed="false">U† (dA/dt) U</button><button type="button" data-correct="false" data-feedback="The product rule gives a sum of terms, differentiating one factor at a time." aria-pressed="false">(dU†/dt) A (dU/dt)</button></div><p class="feedback" role="status" aria-live="polite">Choose an answer to unlock the next part.</p></div>
+<div data-unlock="3" hidden>
+<div class="step"><span class="step-tag">Step 2 · Differentiate using the product rule</span><p>Only the exponentials depend on time. The derivative can therefore act on either exponential:</p><div class="equation"><math display="block"><mtable columnalign="right left" columnspacing="0.3em" rowspacing="0.65em"><mtr><mtd><mfrac><mrow><mi>d</mi><mi>A</mi><mo>(</mo><mi>t</mi><mo>)</mo></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac></mtd><mtd><mo>=</mo><mfrac><mrow><mi>i</mi><mi>H</mi></mrow><mi>ℏ</mi></mfrac><munder><munder><mrow><msup><mi>e</mi><mrow><mi>i</mi><mi>H</mi><mi>t</mi><mo>/</mo><mi>ℏ</mi></mrow></msup><mi>A</mi><msup><mi>e</mi><mrow><mo>−</mo><mi>i</mi><mi>H</mi><mi>t</mi><mo>/</mo><mi>ℏ</mi></mrow></msup></mrow><mo>⏟</mo></munder><mrow><mi>A</mi><mo>(</mo><mi>t</mi><mo>)</mo></mrow></munder></mtd></mtr><mtr><mtd></mtd><mtd><mo>+</mo><munder><munder><mrow><msup><mi>e</mi><mrow><mi>i</mi><mi>H</mi><mi>t</mi><mo>/</mo><mi>ℏ</mi></mrow></msup><mi>A</mi><msup><mi>e</mi><mrow><mo>−</mo><mi>i</mi><mi>H</mi><mi>t</mi><mo>/</mo><mi>ℏ</mi></mrow></msup></mrow><mo>⏟</mo></munder><mrow><mi>A</mi><mo>(</mo><mi>t</mi><mo>)</mo></mrow></munder><mo>(</mo><mo>−</mo><mfrac><mrow><mi>i</mi><mi>H</mi></mrow><mi>ℏ</mi></mfrac><mo>)</mo></mtd></mtr></mtable></math></div><p class="small">We may move H past its own exponential because they commute, but we cannot assume H commutes with A.</p></div>
+<div class="step"><span class="step-tag">Step 3 · Recognize the commutator</span><p>Both exponential sandwiches are just <math><mrow><mi>A</mi><mo>(</mo><mi>t</mi><mo>)</mo></mrow></math>. Thus</p><div class="equation"><math display="block"><mtable columnalign="right left" columnspacing="0.3em" rowspacing="0.7em"><mtr><mtd><mfrac><mrow><mi>d</mi><mi>A</mi><mo>(</mo><mi>t</mi><mo>)</mo></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac></mtd><mtd><mo>=</mo><mfrac><mi>i</mi><mi>ℏ</mi></mfrac><mi>H</mi><mi>A</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>−</mo><mfrac><mi>i</mi><mi>ℏ</mi></mfrac><mi>A</mi><mo>(</mo><mi>t</mi><mo>)</mo><mi>H</mi></mtd></mtr><mtr><mtd></mtd><mtd><mo>=</mo><mfrac><mn>1</mn><mrow><mi>i</mi><mi>ℏ</mi></mrow></mfrac><mo>(</mo><mi>A</mi><mo>(</mo><mi>t</mi><mo>)</mo><mi>H</mi><mo>−</mo><mi>H</mi><mi>A</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>)</mo></mtd></mtr></mtable></math></div><p>Recall that <math><mrow><mo>[</mo><mi>A</mi><mo>,</mo><mi>H</mi><mo>]</mo><mo>=</mo><mi>A</mi><mi>H</mi><mo>−</mo><mi>H</mi><mi>A</mi></mrow></math>. Therefore,</p></div>
+<div class="equation key"><math display="block"><mrow><mfrac><mrow><mi>d</mi><mi>A</mi><mo>(</mo><mi>t</mi><mo>)</mo></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mrow><mi>i</mi><mi>ℏ</mi></mrow></mfrac><mo>[</mo><mi>A</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>,</mo><mi>H</mi><mo>]</mo></mrow></math></div>
+<p>This is the <strong>Heisenberg equation of motion</strong>. The Hamiltonian generates time evolution, and the commutator determines how the observable responds to that evolution.</p>
+<div class="panel quiz" role="group" aria-labelledby="q4-title"><span class="step-tag">Quick check 4</span><h3 id="q4-title">An observable has no explicit time dependence and [A,H] = 0. What happens in the Heisenberg picture?</h3><div class="quiz-options"><button type="button" data-correct="false" data-feedback="The derivative is zero, not necessarily the operator itself." aria-pressed="false">A(t) becomes zero.</button><button type="button" data-correct="true" data-feedback="The Heisenberg equation gives dA/dt = 0, so the observable is conserved." aria-pressed="false">A(t) stays constant.</button><button type="button" data-correct="false" data-feedback="A vanishing commutator implies zero time derivative, so there is no such evolution." aria-pressed="false">A(t) oscillates with time.</button></div><p class="feedback" role="status" aria-live="polite">Choose an answer to unlock the next part.</p></div>
+</div>
+<div data-unlock="4" hidden>
+<p>If the observable commutes with the Hamiltonian, it is constant in time.</p>
+<table class="compare"><thead><tr><th>Schrödinger picture</th><th>Heisenberg picture</th></tr></thead><tbody><tr><td>State evolves</td><td>Operator evolves</td></tr><tr><td>Operator is fixed</td><td>State is fixed</td></tr><tr><td><math><mrow><mi>i</mi><mi>ℏ</mi><mfrac><mi>d</mi><mrow><mi>d</mi><mi>t</mi></mrow></mfrac><mo>|</mo><mi>ψ</mi><mo>⟩</mo><mo>=</mo><mi>H</mi><mo>|</mo><mi>ψ</mi><mo>⟩</mo></mrow></math></td><td><math><mrow><mi>i</mi><mi>ℏ</mi><mfrac><mrow><mi>d</mi><mi>A</mi></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac><mo>=</mo><mo>[</mo><mi>A</mi><mo>,</mo><mi>H</mi><mo>]</mo></mrow></math></td></tr></tbody></table>
+<div class="note"><p>Here we assumed a time-independent Hamiltonian and an observable with no explicit time dependence in the Schrödinger picture. If the observable itself explicitly depends on time, an additional term appears: <math><mrow><msup><mi>U</mi><mo>†</mo></msup><mo>(</mo><mo>∂</mo><mi>A</mi><mo>/</mo><mo>∂</mo><mi>t</mi><mo>)</mo><mi>U</mi></mrow></math>.</p></div>
+</div>
+</section>
+<section id="oscillator" data-unlock="4" hidden>
+<h2><span class="number">04</span>Apply it to the harmonic oscillator</h2>
+<p>Now let the operator be the annihilation operator <math><mi>a</mi></math>. For a harmonic oscillator,</p>
+<div class="equation"><math display="block"><mrow><mi>H</mi><mo>=</mo><mi>ℏ</mi><mi>ω</mi><mo>(</mo><msup><mi>a</mi><mo>†</mo></msup><mi>a</mi><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>)</mo><mspace width="1.5em"/><mo>,</mo><mspace width="1.1em"/><mo>[</mo><mi>a</mi><mo>,</mo><msup><mi>a</mi><mo>†</mo></msup><mo>]</mo><mo>=</mo><mn>1</mn></mrow></math></div>
+<p>All we need to find is the commutator of the annihilation operator with the Hamiltonian.</p>
+<details><summary>Show the commutator calculation</summary><div class="equation"><math display="block"><mtable columnalign="right left" columnspacing=".3em" rowspacing=".8em"><mtr><mtd><mo>[</mo><mi>a</mi><mo>,</mo><mi>H</mi><mo>]</mo></mtd><mtd><mo>=</mo><mi>ℏ</mi><mi>ω</mi><mo>[</mo><mi>a</mi><mo>,</mo><msup><mi>a</mi><mo>†</mo></msup><mi>a</mi><mo>]</mo></mtd></mtr><mtr><mtd></mtd><mtd><mo>=</mo><mi>ℏ</mi><mi>ω</mi><mo>(</mo><mo>[</mo><mi>a</mi><mo>,</mo><msup><mi>a</mi><mo>†</mo></msup><mo>]</mo><mi>a</mi><mo>+</mo><msup><mi>a</mi><mo>†</mo></msup><mo>[</mo><mi>a</mi><mo>,</mo><mi>a</mi><mo>]</mo><mo>)</mo></mtd></mtr><mtr><mtd></mtd><mtd><mo>=</mo><mi>ℏ</mi><mi>ω</mi><mi>a</mi></mtd></mtr></mtable></math></div><p class="small">We used [X,YZ] = [X,Y]Z + Y[X,Z], [a,a†] = 1 and [a,a] = 0. The constant ½ commutes with every operator.</p></details>
+<p>Since <math><mrow><mo>[</mo><mi>a</mi><mo>,</mo><mi>H</mi><mo>]</mo><mo>=</mo><mi>ℏ</mi><mi>ω</mi><mi>a</mi></mrow></math>, substitute into the Heisenberg equation:</p>
+<div class="equation"><math display="block"><mrow><mfrac><mrow><mi>d</mi><mi>a</mi><mo>(</mo><mi>t</mi><mo>)</mo></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mrow><mi>i</mi><mi>ℏ</mi></mrow></mfrac><mo>[</mo><mi>a</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>,</mo><mi>H</mi><mo>]</mo><mo>=</mo><mo>−</mo><mi>i</mi><mi>ω</mi><mi>a</mi><mo>(</mo><mi>t</mi><mo>)</mo></mrow></math></div>
+<div class="panel quiz" role="group" aria-labelledby="q5-title"><span class="step-tag">Quick check 5</span><h3 id="q5-title">For the harmonic oscillator, da/dt = −iωa. Which expression solves this equation with initial value a(0)?</h3><div class="quiz-options"><button type="button" data-correct="false" data-feedback="The positive exponential gives da/dt = +iωa, the opposite sign." aria-pressed="false">a(t) = a(0)eⁱωᵗ</button><button type="button" data-correct="false" data-feedback="This gives real exponential decay, not the imaginary coefficient −iω." aria-pressed="false">a(t) = a(0)e⁻ωᵗ</button><button type="button" data-correct="true" data-feedback="Differentiating the exponential gives −iω times a(t), and at t = 0 it equals a(0)." aria-pressed="false">a(t) = a(0)e⁻ⁱωᵗ</button></div><p class="feedback" role="status" aria-live="polite">Choose an answer to unlock the next part.</p></div>
+<div data-unlock="5" hidden>
+<p>This is a simple differential equation. Its solution is</p>
+<div class="equation key"><math display="block"><mrow><mi>a</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>=</mo><mi>a</mi><mo>(</mo><mn>0</mn><mo>)</mo><msup><mi>e</mi><mrow><mo>−</mo><mi>i</mi><mi>ω</mi><mi>t</mi></mrow></msup></mrow></math></div>
+<p>Similarly, by taking the adjoint, the creation operator evolves as <math><mrow><msup><mi>a</mi><mo>†</mo></msup><mo>(</mo><mi>t</mi><mo>)</mo><mo>=</mo><msup><mi>a</mi><mo>†</mo></msup><mo>(</mo><mn>0</mn><mo>)</mo><msup><mi>e</mi><mrow><mi>i</mi><mi>ω</mi><mi>t</mi></mrow></msup></mrow></math>. Both acquire a time-dependent phase at the natural oscillator frequency.</p>
+
+</div>
+</section>
+<footer data-unlock="5" hidden><strong>Takeaway:</strong> Time evolution can be assigned to either the state or the observable. The Heisenberg equation follows by differentiating the observable's unitary transformation. Both pictures describe exactly the same physics.</footer>
+</main>
+<script>
+'use strict';
+const quizzes=Array.from(document.querySelectorAll('.quiz'));
+const locked=Array.from(document.querySelectorAll('[data-unlock]'));
+const navLinks=Array.from(document.querySelectorAll('[data-nav-unlock]'));
+const progress=document.getElementById('lesson-progress');
+let completed=0;
+function reveal(){
+  locked.forEach(block=>{block.hidden=Number(block.dataset.unlock)>completed;});
+  navLinks.forEach(link=>{
+    const unavailable=Number(link.dataset.navUnlock)>completed;
+    link.setAttribute('aria-disabled',String(unavailable));
+    if(unavailable) link.setAttribute('tabindex','-1');
+    else link.removeAttribute('tabindex');
+  });
+  progress.textContent=completed===quizzes.length
+    ? 'All 5 checks completed. You can now review the entire lesson.'
+    : `${completed} of ${quizzes.length} checks completed. Answer the current quiz correctly to reveal the next part.`;
+}
+navLinks.forEach(link=>link.addEventListener('click',event=>{
+  if(link.getAttribute('aria-disabled')==='true')event.preventDefault();
+}));
+quizzes.forEach((quiz,index)=>{
+  const options=Array.from(quiz.querySelectorAll('.quiz-options button'));
+  const feedback=quiz.querySelector('.feedback');
+  options.forEach(button=>button.addEventListener('click',()=>{
+    if(index!==completed)return;
+    options.forEach(option=>{
+      option.setAttribute('aria-pressed',String(option===button));
+      option.classList.remove('is-correct','is-wrong');
+    });
+    const right=button.dataset.correct==='true';
+    button.classList.add(right?'is-correct':'is-wrong');
+    feedback.className='feedback '+(right?'correct':'wrong');
+    feedback.textContent=(right?'Correct! ':'Incorrect. ')+button.dataset.feedback+
+      (right?(index===quizzes.length-1?' Lesson complete!':' The next part is now revealed.'):' Try again to unlock the next part.');
+    if(right){
+      completed++;
+      options.forEach(option=>{option.disabled=true;});
+      reveal();
+    }
+  }));
+});
+reveal();
+</script>
+</body>
+</html>
