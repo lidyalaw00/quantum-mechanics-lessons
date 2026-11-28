@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="theme-color" content="#f7f8f6">
+  <title>Why does a shifted ground-state wave packet oscillate? | Quantum mechanics</title>
+  <style>
+    :root{color-scheme:light;--ink:#1b303e;--muted:#566d7b;--teal:#087f73;--dark:#075d56;--paper:#f7f8f6;--line:#dce4e2;--mint:#e7f4ee;--amber:#a65329;--warm:#fffaf0;--serif:Georgia,"Times New Roman",serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #b77b2c;outline-offset:3px}[hidden]{display:none!important}h1,h2,h3,p,figure{margin:0}h1,h2{font-family:var(--serif);font-weight:500;letter-spacing:-.035em;line-height:1.12}h1{font-size:clamp(2.35rem,5.5vw,3.85rem)}h2{font-size:clamp(1.8rem,4vw,2.5rem)}h3{font-size:1.08rem;line-height:1.4}p+p{margin-top:12px}
+    header{background:#fff;border-bottom:1px solid var(--line)}.top{max-width:880px;margin:auto;padding:12px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{font-size:.76rem;letter-spacing:.12em;font-weight:750;text-transform:uppercase;color:var(--teal)}.top-note{font-size:.78rem;color:var(--muted)}main{max-width:880px;margin:auto;padding:40px 22px 58px}.eyebrow{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:750;color:var(--teal);margin-bottom:9px}.intro{padding-bottom:28px;border-bottom:1px solid var(--line)}.intro p{max-width:700px;margin-top:16px;font-size:1.04rem;color:var(--muted)}section{padding:32px 0;border-bottom:1px solid var(--line)}section>p{margin-top:15px;max-width:730px}.lead{font-size:1.08rem}.answer{background:var(--mint);border-left:4px solid var(--teal);padding:17px 20px;border-radius:0 10px 10px 0;margin:20px 0}.answer p{margin-top:0}.answer strong{color:var(--dark)}.math{font-family:"Cambria Math","STIX Two Math","Times New Roman",serif;font-size:1.12em;white-space:nowrap}.equation{background:white;border:1px solid var(--line);border-radius:10px;padding:16px;margin:18px 0;overflow-x:auto;text-align:center;font-family:"Cambria Math","STIX Two Math","Times New Roman",serif;font-size:clamp(1.08rem,2.5vw,1.35rem);white-space:nowrap}.equation.key{background:var(--mint);border-color:#bcdccf}.small{font-size:.89rem;color:var(--muted)}
+    .demo{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;margin:22px 0}.demo-header{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}.tag{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dark);font-weight:750;background:var(--mint);padding:3px 9px;border-radius:5px}.demo>p{margin:8px 0 14px}.plots{display:grid;grid-template-columns:1.35fr 1fr;gap:13px}.plot{background:#f9fbf9;border:1px solid var(--line);border-radius:10px;padding:12px;min-width:0}.plot-title{font-size:.8rem;font-weight:750;color:var(--muted);margin-bottom:5px}.plot svg{display:block;width:100%;height:auto}.axis-text{fill:#627682;font:12px system-ui,sans-serif}.plot .grid{stroke:#e2e9e7;stroke-width:1}.plot .axis{stroke:#9dafb5;stroke-width:1.4}.plot .reference{stroke:#abbabd;stroke-width:1.5;stroke-dasharray:4 4}.plot .center-line{stroke:#087f73;stroke-width:1.4;stroke-dasharray:4 4}.plot .curve{stroke:#087f73;stroke-width:3;fill:none;stroke-linecap:round}.plot .potential{stroke:#b5bbc2;stroke-width:2;fill:none}.plot .orbit{stroke:#accac3;stroke-width:2;fill:none}.plot .radius{stroke:#b5d7cb;stroke-width:1.5}.legend{font-size:.77rem;color:var(--muted);margin-top:7px}.swatch{display:inline-block;width:12px;height:3px;vertical-align:middle;margin:0 5px 2px 0;background:var(--teal)}.swatch.gray{background:#b5bbc2;margin-left:12px}
+    .controls{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;margin-top:18px}.control label{display:flex;justify-content:space-between;gap:8px;font-size:.87rem;font-weight:650}.control output{font-variant-numeric:tabular-nums;color:var(--dark)}input[type=range]{width:100%;accent-color:var(--teal);margin:8px 0 0}.control small{display:block;font-size:.75rem;color:var(--muted);line-height:1.4}.buttons{display:flex;gap:8px;align-items:end}.primary,.secondary{border-radius:8px;padding:9px 14px;font-size:.85rem;font-weight:700}.primary{background:var(--teal);border:1px solid var(--teal);color:#fff}.primary:hover{background:var(--dark)}.secondary{background:#fff;border:1px solid #b8ccc6;color:var(--dark)}.secondary:hover{background:var(--mint)}.readouts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:17px}.readout{background:#f0f5f2;border-radius:8px;padding:10px 12px}.readout .name{display:block;font-size:.72rem;color:var(--muted)}.readout output{font-size:1.03rem;font-weight:700;font-variant-numeric:tabular-nums}.readout .unit{font-size:.74rem;color:var(--muted)}
+    .levels{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;margin:19px 0}.levels h3{margin-bottom:4px}.bars{display:grid;gap:6px;margin:15px 0}.barrow{display:grid;grid-template-columns:32px 1fr 48px;align-items:center;gap:8px;font-size:.82rem;font-variant-numeric:tabular-nums}.bartrack{height:14px;border-radius:4px;background:#edf2f0;overflow:hidden}.barfill{height:100%;width:0;background:var(--teal);border-radius:4px;transition:width .18s}.level-foot{font-size:.82rem;color:var(--muted)}.quiz{background:var(--warm);border:1px solid #e8d6b7;border-radius:12px;padding:19px;margin-top:23px}.quiz-tag{font-size:.7rem;color:#936a35;font-weight:750;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}.quiz h3{margin-bottom:12px}.choices{display:grid;gap:8px}.choice{width:100%;text-align:left;background:#fffefa;border:1px solid #dfd4c2;border-radius:8px;padding:10px 12px;color:var(--ink);font-size:.93rem;line-height:1.5}.choice:hover:not(:disabled){border-color:#b5976f;background:#f7f0e1}.choice.correct{background:var(--mint);border-color:#7ab6a4}.choice.wrong{background:#fceee4;border-color:#e0af93}.choice:disabled{cursor:default}.feedback{margin-top:12px;padding:11px 12px;border-radius:7px;font-size:.9rem}.feedback.good{background:var(--mint);color:#176457}.feedback.bad{background:#fbe8dc;color:#93421c}.summary{border:0}.summary .answer{margin-top:18px}.footer{font-size:.79rem;color:var(--muted);margin-top:24px}
+    @media(max-width:680px){main{padding:26px 16px 40px}.top{padding:11px 16px}.top-note{display:none}.plots{grid-template-columns:1fr}.controls{grid-template-columns:1fr}.readouts{grid-template-columns:1fr 1fr}.readout:last-child{grid-column:1/-1}.demo{padding:16px}.plot{padding:9px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.barfill{transition:none}}
+  </style>
+</head>
+<body>
+<header><div class="top"><span class="brand">Quantum mechanics · interactive notes</span><span class="top-note">Wave packets and ladder operators</span></div></header>
+<main>
+  <div class="intro">
+    <div class="eyebrow">A student question</div>
+    <h1>Can a minimum-uncertainty packet move?</h1>
+    <p>Shift the ground-state Gaussian in a harmonic trap. It is no longer an energy eigenstate, but it still has the same initial shape. What happens next?</p>
+  </div>
+
+  <section aria-labelledby="answer-title">
+    <div class="eyebrow">The short answer</div>
+    <h2 id="answer-title">Yes. Its center oscillates.</h2>
+    <div class="answer"><p><strong>The packet moves back and forth without changing its width.</strong> Its mean position and mean momentum oscillate, while the uncertainty product stays at <span class="math">σ<sub>x</sub>σ<sub>p</sub> = ℏ/2</span> at every time. This moving state is called a <strong>coherent state</strong>.</p></div>
+    <p>The uncertainty tells us how spread out the packet is <em>around its center</em>. Moving that center does not, by itself, increase the spread.</p>
+
+    <div class="demo" aria-label="Animated coherent state demonstration">
+      <div class="demo-header"><h3>Watch the packet and its center</h3><span class="tag">Interactive animation</span></div>
+      <p class="small">The initial shift is measured in ground-state position widths <span class="math">σ<sub>x</sub></span>. Scrub through one oscillation or press Play.</p>
+      <div class="plots">
+        <figure class="plot"><figcaption class="plot-title">Position: the Gaussian keeps its width</figcaption>
+          <svg id="positionPlot" viewBox="0 0 450 230" role="img" aria-label="Gaussian probability density moving back and forth with constant width">
+            <line class="axis" x1="35" y1="185" x2="430" y2="185"/><line class="grid" x1="232.5" y1="25" x2="232.5" y2="185"/>
+            <path class="potential" d="M45 72 Q232 270 420 72"/><text class="axis-text" x="325" y="58">trap shape</text>
+            <path id="gaussianFill" fill="#cbece1" opacity=".85"/><path id="gaussianCurve" class="curve"/><line id="centerLine" class="center-line" y1="50" y2="185"/>
+            <text class="axis-text" x="37" y="210">−5</text><text class="axis-text" x="228" y="210">0</text><text class="axis-text" x="409" y="210">+5</text><text class="axis-text" x="189" y="226">position / σₓ</text>
+          </svg><div class="legend"><span class="swatch"></span>probability density <span class="swatch gray"></span>trap shape (separate scale)</div>
+        </figure>
+        <figure class="plot"><figcaption class="plot-title">Mean values: a circle in phase space</figcaption>
+          <svg id="phasePlot" viewBox="0 0 300 230" role="img" aria-label="Mean position and mean momentum orbiting the origin">
+            <line class="axis" x1="24" y1="113" x2="279" y2="113"/><line class="axis" x1="150" y1="12" x2="150" y2="212"/>
+            <circle id="orbit" class="orbit" cx="150" cy="113" r="0"/><line id="radius" class="radius" x1="150" y1="113"/><circle id="phaseDot" cx="150" cy="113" r="6" fill="#087f73"/>
+            <text class="axis-text" x="254" y="132">⟨x⟩</text><text class="axis-text" x="160" y="19">⟨p⟩</text><text class="axis-text" x="164" y="129">0</text>
+          </svg><div class="legend">Axes show ⟨x⟩/σₓ and ⟨p⟩/σₚ. Positive momentum points upward.</div>
+        </figure>
+      </div>
+      <div class="controls">
+        <div class="control"><label for="shift">Initial shift <output id="shiftValue" for="shift">2.0 σₓ</output></label><input id="shift" type="range" min="0" max="3.5" step="0.1" value="2"/><small>At zero shift, this is the stationary ground state.</small></div>
+        <div class="control"><label for="time">Time <output id="timeValue" for="time">0.00 periods</output></label><input id="time" type="range" min="0" max="1" step="0.001" value="0"/><small>One period is <span class="math">2π/ω</span>.</small></div>
+        <div class="buttons"><button class="primary" id="play" type="button" aria-label="Play animation">Play</button><button class="secondary" id="reset" type="button">Reset</button></div>
+      </div>
+      <div class="readouts" aria-live="off"><div class="readout"><span class="name">Mean position</span><output id="xValue">+2.00</output> <span class="unit">σₓ</span></div><div class="readout"><span class="name">Mean momentum</span><output id="pValue">0.00</output> <span class="unit">σₚ</span></div><div class="readout"><span class="name">Uncertainty product</span><output>ℏ/2</output> <span class="unit">throughout</span></div></div>
+    </div>
+    <div class="equation key">⟨x⟩(t) = d cos(ωt) &nbsp;&nbsp;·&nbsp;&nbsp; ⟨p⟩(t) = −mωd sin(ωt)</div>
+    <p class="small">For a purely position-shifted ground state, the packet starts at <span class="math">x=d</span> with zero mean momentum. The harmonic potential keeps its Gaussian shape intact as the center follows this orbit.</p>
+  </section>
+
+  <section aria-labelledby="ladder-title">
+    <div class="eyebrow">The ladder-operator picture</div>
+    <h2 id="ladder-title">Why is a shifted packet not an energy eigenstate?</h2>
+    <p>The ground state obeys <span class="math">a|0⟩=0</span> and is centered at the bottom of the trap. A shifted Gaussian has the same width, but its mean position is <span class="math">d≠0</span>. An excited energy eigenstate <span class="math">|n⟩</span> does not simply look like a displaced ground-state Gaussian.</p>
+    <p>In ladder-operator language, shifting the ground state produces a <strong>superposition of many energy levels</strong>:</p>
+    <div class="equation">|α⟩ = e<sup>−|α|²/2</sup> ∑<sub>n=0</sub><sup>∞</sup> α<sup>n</sup>/√(n!) |n⟩, &nbsp; α = d/(2σ<sub>x</sub>)</div>
+    <p class="small">Here <span class="math">σ<sub>x</sub>=√(ℏ/2mω)</span>. At the start, <span class="math">α</span> is real because we shifted position without giving the packet a momentum kick. The bars show the probabilities for the current shift.</p>
+    <div class="levels"><h3>Which energy levels are present?</h3><div class="bars" id="bars" aria-label="Probabilities for oscillator energy levels"></div><div class="level-foot">The bars stay fixed as the packet moves: the Hamiltonian does not change the probability of each energy eigenstate. It changes their <em>relative phases</em>.</div></div>
+    <p>Each <span class="math">|n⟩</span> gains a phase at its own energy <span class="math">E<sub>n</sub>=(n+½)ℏω</span>. Together, those phases move the center. Equivalently, a coherent state obeys <span class="math">a|α⟩=α|α⟩</span>, and its label rotates as <span class="math">α(t)=αe<sup>−iωt</sup></span>. The real and imaginary parts give the moving mean position and momentum.</p>
+    <div class="quiz" data-answer="1"><div class="quiz-tag">Quick check</div><h3>If the shifted packet contains several energy levels, why do the bars stay fixed?</h3><div class="choices"><button class="choice" type="button">The packet stops moving once the levels are fixed.</button><button class="choice" type="button">Only their phases change; each level’s probability stays the same.</button><button class="choice" type="button">The levels all have the same energy.</button></div><div class="feedback" role="status" hidden></div></div>
+  </section>
+
+  <section aria-labelledby="uncertainty-title">
+    <div class="eyebrow">The uncertainty question</div>
+    <h2 id="uncertainty-title">How can it move and still reach ℏ/2?</h2>
+    <p>The ground-state width is <span class="math">σ<sub>x</sub>=√(ℏ/2mω)</span>, and its momentum width is <span class="math">σ<sub>p</sub>=√(mℏω/2)</span>. A simple shift changes the <em>mean</em> position but initially changes neither width. During harmonic evolution, this coherent packet remains minimum uncertainty:</p>
+    <div class="equation key">σ<sub>x</sub>(t) = √(ℏ/2mω), &nbsp; σ<sub>p</sub>(t) = √(mℏω/2), &nbsp; σ<sub>x</sub>σ<sub>p</sub> = ℏ/2.</div>
+    <p>So the statement “only the ground state reaches <span class="math">ℏ/2</span>” is true <strong>among the energy eigenstates</strong> <span class="math">|n⟩</span>. It is not a claim about every possible state. Coherent states also reach the bound, even though a shifted one is a superposition and is moving.</p>
+    <div class="quiz" data-answer="0"><div class="quiz-tag">Check your intuition</div><h3>At the turning point, the packet’s mean momentum is zero. What happens to its momentum uncertainty?</h3><div class="choices"><button class="choice" type="button">It stays at the ground-state value: a zero mean does not mean zero spread.</button><button class="choice" type="button">It becomes zero because the packet stops for an instant.</button><button class="choice" type="button">It must grow whenever the packet reaches a turning point.</button></div><div class="feedback" role="status" hidden></div></div>
+  </section>
+
+  <section class="summary"><div class="eyebrow">Remember</div><h2>One sentence to keep</h2><div class="answer"><p><strong>A shifted ground-state Gaussian is a moving coherent state:</strong> the center oscillates because its energy components change relative phase, while its position and momentum spreads remain at the ground-state values.</p></div><p class="footer">Ideal one-dimensional harmonic oscillator · The animation shows probability density and mean values, not a particle trajectory.</p></section>
+</main>
+<script>
+(() => {
+  const shift=document.getElementById('shift'), time=document.getElementById('time');
+  const shiftValue=document.getElementById('shiftValue'), timeValue=document.getElementById('timeValue');
+  const xValue=document.getElementById('xValue'), pValue=document.getElementById('pValue');
+  const fill=document.getElementById('gaussianFill'), curve=document.getElementById('gaussianCurve'), centerLine=document.getElementById('centerLine');
+  const phaseDot=document.getElementById('phaseDot'), radius=document.getElementById('radius'), orbit=document.getElementById('orbit');
+  const bars=document.getElementById('bars'), play=document.getElementById('play');
+  let running=false, previous=null, lastShift=null;
+  const sign=n=>(n>=0?'+':'')+n.toFixed(2);
+  function drawBars(d){
+    const mean=d*d/4; let probability=Math.exp(-mean), rows=[];
+    for(let n=0;n<=7;n++){
+      if(n>0) probability*=mean/n;
+      rows.push(`<div class="barrow"><span>|${n}⟩</span><div class="bartrack"><div class="barfill" style="width:${(100*probability).toFixed(2)}%"></div></div><span>${(100*probability).toFixed(1)}%</span></div>`);
+    }
+    bars.innerHTML=rows.join('')+'<div class="small">Higher levels are omitted from this display.</div>';
+  }
+  function draw(){
+    const d=Number(shift.value), t=Number(time.value), angle=2*Math.PI*t;
+    const xc=d*Math.cos(angle), pc=-d*Math.sin(angle);
+    shiftValue.textContent=d.toFixed(1)+' σₓ';timeValue.textContent=t.toFixed(2)+' periods';
+    xValue.textContent=sign(xc);pValue.textContent=sign(pc);
+    const mapX=q=>232.5+37.5*q, baseline=185;
+    let line='', area=`M ${mapX(-5).toFixed(1)} ${baseline}`;
+    for(let i=0;i<=160;i++){
+      const q=-5+i/16, y=baseline-120*Math.exp(-.5*(q-xc)**2);
+      const point=`${mapX(q).toFixed(1)} ${y.toFixed(1)}`;
+      line+=(i?' L ':'M ')+point;area+=' L '+point;
+    }
+    fill.setAttribute('d',area+` L ${mapX(5).toFixed(1)} ${baseline} Z`);
+    curve.setAttribute('d',line);
+    centerLine.setAttribute('x1',mapX(xc));centerLine.setAttribute('x2',mapX(xc));
+    const scale=31, px=150+xc*scale, py=113-pc*scale;
+    orbit.setAttribute('r',d*scale);radius.setAttribute('x2',px);radius.setAttribute('y2',py);
+    phaseDot.setAttribute('cx',px);phaseDot.setAttribute('cy',py);
+    if(d!==lastShift){drawBars(d);lastShift=d;}
+  }
+  function stop(){running=false;previous=null;play.textContent='Play';play.setAttribute('aria-label','Play animation');}
+  function frame(now){
+    if(!running)return;
+    if(previous!==null)time.value=((Number(time.value)+(now-previous)/5000)%1).toFixed(3);
+    previous=now;draw();requestAnimationFrame(frame);
+  }
+  shift.addEventListener('input',draw);time.addEventListener('input',()=>{previous=null;draw();});
+  play.addEventListener('click',()=>{if(running){stop();return;}running=true;previous=null;play.textContent='Pause';play.setAttribute('aria-label','Pause animation');requestAnimationFrame(frame);});
+  document.getElementById('reset').addEventListener('click',()=>{stop();shift.value='2';time.value='0';draw();});
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)stop();
+  document.querySelectorAll('.quiz').forEach(quiz=>{
+    const correct=Number(quiz.dataset.answer), feedback=quiz.querySelector('.feedback');
+    quiz.querySelectorAll('.choice').forEach((button,index)=>button.addEventListener('click',()=>{
+      quiz.querySelectorAll('.choice').forEach((option,i)=>{option.disabled=true;if(i===correct)option.classList.add('correct');});
+      if(index!==correct)button.classList.add('wrong');
+      feedback.hidden=false;feedback.className='feedback '+(index===correct?'good':'bad');
+      feedback.textContent=index===correct?'Exactly. '+(correct===1?'The changing relative phases cause the motion.':'Mean momentum and momentum spread are different quantities.'):(correct===1?'The probabilities remain fixed, but the changing relative phases move the packet.':'A zero average momentum does not remove the range of possible momentum outcomes.');
+    }));
+  });
+  draw();
+})();
+</script>
+</body>
+</html>
