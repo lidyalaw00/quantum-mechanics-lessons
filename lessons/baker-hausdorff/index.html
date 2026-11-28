@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Baker–Hausdorff lemma · Quantum operator evolution</title>
+<style>
+:root{color-scheme:light;--ink:#203340;--muted:#536773;--teal:#087b70;--blue:#3b649c;--amber:#a85c23;--paper:#f7f8f6;--line:#dbe4df;--mint:#e8f4ef;--serif:Georgia,"Times New Roman",serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:76px}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}[hidden]{display:none!important}header{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line)}.top{max-width:840px;margin:auto;padding:12px 23px;display:flex;align-items:center;justify-content:space-between;gap:12px}.eyebrow,.brand{font-size:.68rem;letter-spacing:.13em;font-weight:750;text-transform:uppercase;color:var(--teal)}.progress{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:.77rem;white-space:nowrap}.track{width:76px;height:5px;background:#e1e9e4;border-radius:12px;overflow:hidden}.track span{display:block;width:0;height:100%;background:var(--teal);transition:width .2s}main{max-width:840px;margin:auto;padding:36px 23px 48px}h1,h2,h3,p{margin:0}h1,h2{font-family:var(--serif);font-weight:500;letter-spacing:-.035em;line-height:1.14}h1{font-size:clamp(2.5rem,6.6vw,3.75rem);margin:9px 0 16px}h2{font-size:clamp(1.75rem,4.5vw,2.45rem);margin:7px 0 15px}h3{font-size:1.05rem;line-height:1.45}p{margin:11px 0}.intro{padding-bottom:24px;border-bottom:1px solid var(--line)}.intro p{color:var(--muted);max-width:680px}.stage{padding:28px 0;border-bottom:1px solid var(--line)}.eq{font-family:"Cambria Math","STIX Two Math","Times New Roman",serif;font-size:clamp(1.04rem,2.8vw,1.28rem);line-height:1.7;background:white;border:1px solid var(--line);border-radius:9px;margin:15px 0;padding:12px 13px;text-align:center;overflow-x:auto}.eq.key{background:var(--mint);border-color:#c4dbd1}.eq .line{display:block}.eq .small{font-size:.9em}.nowrap{white-space:nowrap}.note{font-size:.85rem;color:var(--muted)}.callout{border-left:3px solid #92b9ac;padding:2px 13px;margin:16px 0}.demo{border:1px solid var(--line);background:white;border-radius:12px;padding:18px;margin:19px 0}.demo h3{margin:0 0 4px}.demo p{margin:7px 0}.controls{display:grid;gap:13px;margin:13px 0}.control label{font-size:.85rem;font-weight:650;display:flex;justify-content:space-between;align-items:center;gap:10px}.control output{font-variant-numeric:tabular-nums;color:var(--teal)}input[type=range]{width:100%;accent-color:var(--teal);margin:7px 0 0;cursor:pointer}button{font:inherit;cursor:pointer}button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #bd853b;outline-offset:3px}.btn{border:1px solid var(--line);background:white;color:var(--ink);padding:7px 13px;border-radius:8px;font-weight:650;font-size:.86rem}.btn:hover{background:#f3f7f5}.btn.primary{background:var(--teal);color:white;border-color:var(--teal)}.btn:disabled{opacity:.4;cursor:default}.button-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.spacer{flex:1}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}.derivative{border:1px solid var(--line);border-radius:8px;padding:10px 8px;background:#f8faf9;min-width:0;text-align:center;opacity:.46}.derivative.active{background:var(--mint);border-color:#a8cfc0;opacity:1}.derivative.past{opacity:1}.derivative .label{font-size:.73rem;color:var(--muted)}.derivative .math{font:1.05rem/1.5 "Cambria Math",Georgia,serif;overflow-wrap:anywhere}.derivative small{display:block;font-size:.7rem;color:var(--muted)}.detail{min-height:88px;border-radius:8px;background:#f5f8f6;padding:10px 12px}.detail .math{font:1.08rem/1.65 "Cambria Math",Georgia,serif}.plot{display:block;width:100%;height:auto;margin:6px 0}.plot text{font-family:system-ui,sans-serif;fill:#536773;font-size:12px}.legend{display:flex;gap:10px 18px;flex-wrap:wrap;justify-content:center;font-size:.76rem;color:var(--muted)}.legend i{display:inline-block;width:16px;height:3px;margin-right:5px;vertical-align:middle;border-radius:2px}.values{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:13px 0 0}.value{border:1px solid var(--line);border-radius:8px;padding:9px 12px}.value small{display:block;color:var(--muted);font-size:.75rem}.value strong{display:block;font-size:1.2rem;font-variant-numeric:tabular-nums}.quiz{padding:18px;background:#fffaf1;border:1px solid #e8d6b7;border-radius:12px;margin-top:23px}.quiz .eyebrow{font-size:11px;letter-spacing:.12em;font-weight:750;color:#8b652e;margin-bottom:7px}.quiz h3{margin:6px 0 12px}.options{display:grid;gap:8px}.option{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;padding:10px 12px;font-size:.94rem;line-height:1.5;color:var(--ink);background:#fffefa;border:1px solid #dfd4c2;border-radius:8px}.option:hover:not(:disabled){background:#f5eddf;border-color:#af9167}.letter{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;flex-shrink:0;color:#8c7558;font-size:.76rem;font-weight:750;border:1px solid #dfd4c2;border-radius:4px}.option.correct{background:var(--mint);border-color:#7ab6a4}.option.wrong{background:#fceee4;border-color:#e0af93}.option:disabled{cursor:default}.feedback{font-size:.9rem;padding:11px 12px;border-radius:7px;margin-top:10px}.feedback.good{background:var(--mint);color:#145c4f}.feedback.bad{background:#fbe8dc;color:#8b3e1c}.complete{border:1px solid #b8d6ca;background:var(--mint);padding:22px;border-radius:12px;margin:24px 0}.complete h2{font-size:1.9rem}.complete p{margin:9px 0}footer{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:24px;color:var(--muted);font-size:.78rem}details{border:1px solid var(--line);background:white;border-radius:8px;padding:11px 13px;margin:12px 0}summary{cursor:pointer;font-weight:650;font-size:.9rem}details p{font-size:.91rem}.math{font-family:"Cambria Math",Georgia,serif}sup,sub{line-height:0}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:520px){main{padding:24px 15px 36px}.top{padding:11px 15px}.track{width:46px}.brand{max-width:160px;line-height:1.3}.stage{padding:23px 0}.demo,.quiz{padding:13px}.steps{grid-template-columns:repeat(2,1fr)}.eq{padding:10px 8px}.detail{min-height:0}.plot text{font-size:14px}footer{align-items:flex-start}.values{gap:6px}.value{padding:8px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="top"><div class="brand">Quantum mechanics · Tutorial</div><div class="progress"><span id="progressLabel">0 / 3 complete</span><div class="track" role="progressbar" aria-label="Lesson progress" aria-valuemin="0" aria-valuemax="3" aria-valuenow="0"><span id="progressFill"></span></div></div></div></header>
+<main>
+<section class="intro"><div class="eyebrow">Interactive lesson</div><h1>The Baker–Hausdorff lemma</h1><p>Why do nested commutators appear in the time evolution of quantum operators? What do they actually tell us about the motion?</p><p>Start with the Heisenberg picture, then see how a familiar Taylor expansion answers both questions.</p></section>
+<section class="stage" id="step1">
+<div class="eyebrow">01 · The problem</div><h2>How does an operator evolve?</h2>
+<p>In the Schrödinger picture, the state evolves with time. In the Heisenberg picture, we keep the state fixed and transfer the time evolution to the operator.</p>
+<div class="eq"><span class="line">|ψ(t)⟩ = e<sup>−iĤt/ℏ</sup>|ψ(0)⟩</span><span class="line">Â(t) = e<sup>iĤt/ℏ</sup> Â(0) e<sup>−iĤt/ℏ</sup></span></div>
+<p class="note">Throughout this lesson, Ĥ is time independent and Â has no explicit time dependence.</p>
+<p>Now we want to actually calculate Â(t). At first glance, this looks easy: the two exponentials are inverses of each other.</p>
+<div class="eq">e<sup>iĤt/ℏ</sup> e<sup>−iĤt/ℏ</sup> = I</div>
+<p>So why not just cancel them and get Â(t) = Â(0)? The problem is that Â(0) is sitting <strong>between</strong> the two exponentials.</p>
+<div class="eq"><span class="line">e<sup>iĤt/ℏ</sup> <span style="color:var(--teal);font-weight:bold">Â(0)</span> e<sup>−iĤt/ℏ</sup></span><span class="line small">We would need to move Â(0) past one of the exponentials before canceling them.</span></div>
+<p>Unlike ordinary numbers, the order of quantum operators matters. Recall that if two operators commute, we can interchange their order: ĤÂ = ÂĤ, or equivalently [Ĥ, Â] = 0.</p>
+<p>If Â(0) commutes with Ĥ, it also commutes with the exponentials of Ĥ (which are built from powers of Ĥ). In that case, we can rearrange the expression:</p>
+<div class="eq key"><span class="line">Â(t) = e<sup>iĤt/ℏ</sup> Â(0) e<sup>−iĤt/ℏ</sup></span><span class="line">= Â(0) e<sup>iĤt/ℏ</sup> e<sup>−iĤt/ℏ</sup></span><span class="line">= Â(0).</span></div>
+<p>But not every operator commutes with the Hamiltonian. What happens in that case?</p>
+<div class="quiz" data-quiz="0"><div class="eyebrow">Concept check 01</div><h3>Why can't we simply cancel the two exponentials and conclude that Â(t) = Â(0) for every observable?</h3><div class="options"><button class="option" data-choice="0"><span class="letter">A</span>Because the two exponentials are not inverses of each other.</button><button class="option" data-choice="1"><span class="letter">B</span>Because Â(0) may not commute with the time-evolution operators.</button><button class="option" data-choice="2"><span class="letter">C</span>Because a time-independent Hamiltonian cannot generate time evolution.</button></div><div class="feedback" aria-live="polite" hidden></div></div>
+</section>
+<section class="stage" id="step2" hidden>
+<div class="eyebrow">02 · Where the nesting comes from</div><h2>A Taylor expansion for operators</h2>
+<p>We have seen that cancellation works when Ĥ and Â commute. But if they do not commute, we need another way to evaluate the original expression for Â(t).</p>
+<p>The <strong>Baker–Hausdorff lemma</strong> gives us a way to expand this expression:</p>
+<div class="eq key"><span class="line">e<sup>X̂</sup> Â e<sup>−X̂</sup> = Â + [X̂, Â]</span><span class="line">+ 1/2! [X̂, [X̂, Â]] + ···</span></div>
+<p>Here, X̂ = iĤt/ℏ. To understand why nested commutators appear, start with something familiar: the Taylor expansion.</p>
+<p>For an ordinary moving particle, we can describe its position using its initial position, velocity, acceleration, and higher derivatives:</p>
+<div class="eq">x(t) = x(0) + v(0)t + ½a(0)t² + ···</div>
+<p>Similarly, for a quantum operator, we can write</p>
+<div class="eq"><span class="line">Â(t) = Â(0) + tÂ′(0)</span><span class="line">+ (t²/2!)Â″(0) + ···</span></div>
+<p>But how do we calculate the derivatives of an operator? The <strong>Heisenberg equation of motion</strong> tells us:</p>
+<div class="eq key">dÂ/dt = (i/ℏ)[Ĥ, Â]</div>
+<p>Taking another time derivative introduces another commutator with Ĥ, because Ĥ is time independent.</p>
+<div class="demo"><h3>Build the nested commutators</h3><p class="note">Advance one derivative at a time. Notice how each step adds one more commutator.</p><div class="steps" id="derivCards"><div class="derivative active"><div class="label">Order 0</div><div class="math">Â</div><small>Initial operator</small></div><div class="derivative"><div class="label">Order 1</div><div class="math">[Ĥ, Â]</div><small>One commutator</small></div><div class="derivative"><div class="label">Order 2</div><div class="math">[Ĥ, [Ĥ, Â]]</div><small>Two commutators</small></div><div class="derivative"><div class="label">Order 3</div><div class="math">[Ĥ, [Ĥ, [Ĥ, Â]]]</div><small>Three commutators</small></div></div><div class="detail" aria-live="polite"><div class="math" id="derivFormula">Â(t)</div><div class="note" id="derivText">Start with the operator whose time evolution we want to find.</div></div><div class="button-row" style="margin-top:12px"><button class="btn" id="derivPrev" disabled>← Previous</button><button class="btn primary" id="derivNext">Next derivative →</button><span class="spacer"></span><button class="btn" id="derivReset">Reset</button></div></div>
+<p>Substituting these derivatives into the Taylor expansion gives the Baker–Hausdorff expansion for time evolution:</p>
+<div class="eq key"><span class="line">Â(t) = Â(0) + (it/ℏ)[Ĥ, Â(0)]</span><span class="line">+ (it/ℏ)²/2! [Ĥ, [Ĥ, Â(0)]]</span><span class="line">+ (it/ℏ)³/3! [Ĥ, [Ĥ, [Ĥ, Â(0)]]] + ···</span></div>
+<p><strong>The nested commutators are simply successive time derivatives,</strong> with the appropriate factors of i/ℏ. There is no new mysterious operation.</p>
+<div class="quiz" data-quiz="1"><div class="eyebrow">Concept check 02</div><h3>What does the second nested commutator [Ĥ, [Ĥ, Â]] tell us, with the appropriate factor?</h3><div class="options"><button class="option" data-choice="0"><span class="letter">A</span>The second time derivative of Â.</button><button class="option" data-choice="1"><span class="letter">B</span>The uncertainty of Â.</button><button class="option" data-choice="2"><span class="letter">C</span>The probability of measuring Â.</button></div><div class="feedback" aria-live="polite" hidden></div></div>
+</section>
+<section class="stage" id="step3" hidden>
+<div class="eyebrow">03 · What it tells us</div><h2>When does an operator not evolve?</h2>
+<p>If an operator commutes with the Hamiltonian, [Ĥ, Â] = 0, its first time derivative is zero. All the higher nested commutators also vanish.</p>
+<div class="eq key">[Ĥ, Â] = 0 &nbsp; ⇒ &nbsp; Â(t) = Â(0)</div>
+<p>For example, the Hamiltonian itself commutes with itself. This is why energy is conserved for a time-independent Hamiltonian.</p>
+<p>By contrast, an operator that does not commute with Ĥ changes with time. Its evolution is described by the nested-commutator series.</p>
+<div class="quiz" data-quiz="2"><div class="eyebrow">Concept check 03</div><h3>If [Ĥ, Â] = 0 and Â has no explicit time dependence, what happens to Â(t)?</h3><div class="options"><button class="option" data-choice="0"><span class="letter">A</span>It changes because the higher commutators are nonzero.</button><button class="option" data-choice="1"><span class="letter">B</span>It oscillates with the frequency of the Hamiltonian.</button><button class="option" data-choice="2"><span class="letter">C</span>It remains unchanged throughout the time evolution.</button></div><div class="feedback" aria-live="polite" hidden></div></div>
+</section>
+<section id="complete" class="complete" hidden><div class="eyebrow">Lesson complete</div><h2>Nested commutators are successive time derivatives.</h2><p>The Baker–Hausdorff lemma is essentially a Taylor expansion for quantum operator evolution. The first commutator tells us how the operator changes, and higher nested commutators tell us how those changes develop with time.</p><p><strong>The Hamiltonian generates time evolution.</strong> For a conserved observable, the commutator vanishes. For a nonconserved observable, the series describes how it changes with time.</p><p class="note">You can revisit any section or use the commutator builder to review the successive derivatives.</p></section>
+<footer><span>Quantum mechanics · Interactive concept review</span><button class="btn" id="restart">Restart lesson</button></footer>
+</main>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+const quizData=[
+{correct:1,feedback:['The exponentials are inverses: their product is I. The difficulty is the operator between them.','Exactly. If Â(0) does not commute with Ĥ, we cannot freely move it past the exponentials for all times. We need a way to evaluate the expression without rearranging the operators.','A time-independent Hamiltonian can still generate nontrivial time evolution when it does not commute with Â(0).']},
+{correct:0,feedback:['Exactly. The second derivative is (i/ℏ)²[Ĥ, [Ĥ, Â]].','An uncertainty comes from a variance, not from a second time derivative.','Measurement probabilities are not given by these time derivatives.']},
+{correct:2,feedback:['Once the first commutator is zero, every nested commutator is zero as well.','A commuting operator has no time evolution under these assumptions.','Exactly. All the commutators vanish, so the operator is conserved.']}
+];
+const solved=new Set();
+function progress(){ $('progressLabel').textContent=`${solved.size} / ${quizData.length} complete`;$('progressFill').style.width=`${solved.size/quizData.length*100}%`;document.querySelector('.track').setAttribute('aria-valuenow',solved.size); }
+document.querySelectorAll('.quiz').forEach(q=>{
+ const i=Number(q.dataset.quiz),data=quizData[i],fb=q.querySelector('.feedback'),options=[...q.querySelectorAll('.option')];
+ options.forEach(btn=>btn.addEventListener('click',()=>{
+  if(solved.has(i))return;
+  options.forEach(b=>b.classList.remove('wrong','correct'));
+  const choice=Number(btn.dataset.choice),ok=choice===data.correct;
+  btn.classList.add(ok?'correct':'wrong');fb.textContent=data.feedback[choice];fb.className='feedback '+(ok?'good':'bad');fb.hidden=false;
+  if(ok){
+   solved.add(i);options.forEach(b=>b.disabled=true);progress();
+   const target=i===quizData.length-1?$('complete'):$('step'+(i+2));
+   target.hidden=false;
+  }
+ }));
+});
+let derivative=0;
+const derivFormulas=['Â(t)','dÂ/dt = (i/ℏ)[Ĥ, Â]','d²Â/dt² = (i/ℏ)²[Ĥ, [Ĥ, Â]]','d³Â/dt³ = (i/ℏ)³[Ĥ, [Ĥ, [Ĥ, Â]]]'];
+const derivTexts=['Start with the operator whose time evolution we want to find.','The Heisenberg equation gives the first time derivative.','Differentiate again: Ĥ is constant, so another commutator with Ĥ appears.','Differentiate once more. Every derivative adds one commutator and a factor of i/ℏ.'];
+function renderDeriv(){[...$('derivCards').children].forEach((c,i)=>{c.classList.toggle('active',i===derivative);c.classList.toggle('past',i<derivative);});$('derivFormula').textContent=derivFormulas[derivative];$('derivText').textContent=derivTexts[derivative];$('derivPrev').disabled=derivative===0;$('derivNext').disabled=derivative===3;}
+$('derivNext').onclick=()=>{derivative=Math.min(3,derivative+1);renderDeriv();};$('derivPrev').onclick=()=>{derivative=Math.max(0,derivative-1);renderDeriv();};$('derivReset').onclick=()=>{derivative=0;renderDeriv();};
+$('restart').onclick=()=>{solved.clear();progress();document.querySelectorAll('.quiz').forEach(q=>{q.querySelectorAll('.option').forEach(b=>{b.disabled=false;b.classList.remove('correct','wrong');});q.querySelector('.feedback').hidden=true;});['step2','step3','complete'].forEach(id=>$(id).hidden=true);derivative=0;renderDeriv();window.scrollTo({top:0,behavior:'smooth'});};
+renderDeriv();progress();
+</script>
+</body></html>
